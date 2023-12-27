@@ -1,6 +1,9 @@
-package br.edu.ifrn.gerencia.domain.acomodacao;
+package br.edu.ifrn.gerencia.domain.reserva;
 
-import br.edu.ifrn.gerencia.domain.anfitriao.Anfitriao;
+import java.time.LocalDateTime;
+
+import br.edu.ifrn.gerencia.domain.acomodacao.Acomodacao;
+import br.edu.ifrn.gerencia.domain.hospede.Hospede;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -15,24 +18,26 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-@Entity(name = "acomodacao")
-@Table(name = "acomodacao")
+@Entity(name = "reserva")
+@Table(name = "reserva")
 @NoArgsConstructor
 @AllArgsConstructor
 @Getter
 @Setter
 @EqualsAndHashCode(of = "id")
-public class Acomodacao {
+public class Reserva {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    @Column(name = "localizacao")
-    private String localizacao;
-    @Column(name = "num_registro")
-    private int num_registro;
-    @Column(name = "qtd_de_quartos")
-    private int qtd_de_quartos;
+    @Column(name = "data_inicio")
+    private LocalDateTime data_inicio;
+    @Column(name = "data_fim")
+    private LocalDateTime data_fim;
     @ManyToOne
-    @JoinColumn(name = "id_anfitriao")
-    private Anfitriao anfitriao;
+    @JoinColumn(name = "id_acomodacao")
+    private Acomodacao acomodacao;
+    @ManyToOne
+    @JoinColumn(name = "id_hospede")
+    private Hospede hospede;
 }
