@@ -2,8 +2,8 @@ package br.edu.ifrn.gerencia.repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
-import br.edu.ifrn.vendasestoque.domain.fabricante.Anfiriao;
+import br.edu.ifrn.gerencia.domain.anfitriao.Anfitriao;
 
-public interface AnfiriaoRepository extends JpaRepository<Anfiriao, Long>{
+public interface AnfitriaoRepository extends JpaRepository<Anfitriao, Long>{
     
 }
