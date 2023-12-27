@@ -2,6 +2,8 @@ package br.edu.ifrn.gerencia.domain.reserva;
 
 import java.time.LocalDateTime;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 import br.edu.ifrn.gerencia.domain.acomodacao.Acomodacao;
 import br.edu.ifrn.gerencia.domain.hospede.Hospede;
 import jakarta.persistence.Column;
@@ -39,5 +41,6 @@ public class Reserva {
     private Acomodacao acomodacao;
     @ManyToOne
     @JoinColumn(name = "id_hospede")
+    @JsonBackReference
     private Hospede hospede;
 }

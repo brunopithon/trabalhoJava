@@ -3,6 +3,9 @@ package br.edu.ifrn.gerencia.domain.hospede;
 import java.time.LocalDateTime;
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
@@ -35,6 +38,7 @@ public class Hospede {
     private String nome;
     @Column(name = "data_registro")
     private LocalDateTime data_registro;
-    @OneToMany(mappedBy = "reserva", fetch = FetchType.EAGER)
+    @OneToMany(mappedBy = "hospede")
+    @JsonManagedReference
     private List<Reserva> reserva;
 }

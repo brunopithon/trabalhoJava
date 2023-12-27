@@ -1,5 +1,7 @@
 package br.edu.ifrn.gerencia.domain.acomodacao;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 import br.edu.ifrn.gerencia.domain.anfitriao.Anfitriao;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -26,6 +28,8 @@ public class Acomodacao {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+    @Column(name = "nome")
+    private String nome;
     @Column(name = "localizacao")
     private String localizacao;
     @Column(name = "num_registro")
@@ -34,5 +38,6 @@ public class Acomodacao {
     private int qtd_de_quartos;
     @ManyToOne
     @JoinColumn(name = "id_anfitriao")
+    @JsonBackReference
     private Anfitriao anfitriao;
 }

@@ -17,6 +17,8 @@ import lombok.Setter;
 
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 import br.edu.ifrn.gerencia.domain.acomodacao.Acomodacao;
 
 @Entity(name = "anfitriao")    //JPQL
@@ -35,6 +37,7 @@ public class Anfitriao {
     private String nome;
     @Column(name = "nacionalidade")
     private String nacionalidade;
-    @OneToMany(mappedBy = "acomodacao", fetch = FetchType.EAGER)
+    @OneToMany(mappedBy = "anfitriao", fetch = FetchType.EAGER)
+    @JsonManagedReference
     private List<Acomodacao> acomodacoes;
 }

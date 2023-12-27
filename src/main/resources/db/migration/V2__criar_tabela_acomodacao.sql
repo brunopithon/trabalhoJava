@@ -4,6 +4,6 @@ CREATE TABLE acomodacao (
     localizacao varchar(150) not null,
     num_registro int not null,
     qtd_de_quartos int not null,
-    id_anfitriao int,
+    id_anfitriao int not null,
     FOREIGN KEY (id_anfitriao) REFERENCES anfitriao (id)
 );
