@@ -2,6 +2,7 @@ package br.edu.ifrn.gerencia.domain.anfitriao;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
@@ -13,6 +14,10 @@ import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+
+import java.util.List;
+
+import br.edu.ifrn.gerencia.domain.acomodacao.Acomodacao;
 
 @Entity(name = "anfitriao")    //JPQL
 @Table(name = "anfitriao")     //SQL
@@ -30,6 +35,6 @@ public class Anfitriao {
     private String nome;
     @Column(name = "nacionalidade")
     private String nacionalidade;
-    // @OneToMany(mappedBy = "acomodacao")
-    // private List<Acomodacao> acomodacoes;
+    @OneToMany(mappedBy = "acomodacao", fetch = FetchType.EAGER)
+    private List<Acomodacao> acomodacoes;
 }
