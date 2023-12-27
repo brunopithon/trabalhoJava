@@ -1,4 +1,4 @@
-package br.edu.ifrn.Gerencia;
+package br.edu.ifrn.gerencia;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
